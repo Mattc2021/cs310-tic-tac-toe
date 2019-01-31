@@ -298,8 +298,24 @@ public class TicTacToeModel {
         
         // INSERT YOUR CODE HERE
         
-        return output.toString();
+        for(int i =0; i < width; i++){
+            output.append(i);
+        }
+        output.append("\n");
         
-    }
-    
+        for(int i = 0; i < width; i++){
+            for(int j = 0; j < width; j++){
+                if(j ==0){
+                    output.append(i).append(" ").append(board[i][j]);
+                }
+                else if (j > 0){
+                    output.append(board[i][j]);
+                }
+                if (j == width - 1){
+                    output.append("\n");
+                }
+            }
+        }        
+        return output.toString();        
+    }    
 }
