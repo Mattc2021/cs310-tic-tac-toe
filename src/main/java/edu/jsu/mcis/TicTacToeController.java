@@ -1,6 +1,10 @@
 package edu.jsu.mcis;
 
-public class TicTacToeController {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
+public class TicTacToeController implements ActionListener{
 
     private final TicTacToeModel model;
     private final TicTacToeView view;
@@ -10,35 +14,33 @@ public class TicTacToeController {
     public TicTacToeController(int width) {
         
         /* Initialize model, view, and width */
-
+        
         model = new TicTacToeModel(width);
-        view = new TicTacToeView();
+        view = new TicTacToeView(this, width);
         
     }
-
-    public void start() {
     
-        /* MAIN LOOP (repeats until game is over) */
+    public String getMarkAsString(int row, int col) {       
+        return (model.getMark(row, col).toString());       
+    }
+   
+    public TicTacToeView getView() {       
+        return view;       
+    }
 
-        /* Display the board using the View's "showBoard()", then use
-           "getNextMove()" to get the next move from the player.  Enter
-           the move (using the Model's "makeMark()", or display an error
-           using the View's "showInputError()" if the move is invalid. */
-
-        // INSERT YOUR CODE HERE
-        
-        while(!model.isGameover()){
-            view.showBoard(model.toString());
-            TicTacToeMove Move = view.getNextMove(model.isXTurn());
-            if(!model.makeMark(Move.getRow(), Move.getCol()))
-                view.showInputError();            
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        JButton button = null;
+        if (event.getSource() instanceof JButton) {
+            button = (JButton)(event.getSource());
         }
-        
-        /* After the game is over, show the final board and the winner */
-
-        view.showBoard(model.toString());
-
-        view.showResult(model.getResult().toString());
+        String[] coordinates = button.getName().replace("Square", "").split("");
+        model.makeMark(Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]));
+        view.updateSquares();
+        if (model.isGameover()) {
+            view.disableSquares();
+            view.showResult(model.getResult().toString());
+        }
         
     }
 
