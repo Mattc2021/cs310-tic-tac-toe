@@ -35,7 +35,7 @@ determine what player is next, and the physical board which is a two-dimensional
 array of marks is delcared using the size of the board to set the column and row length, and a loop populates all empty space with 
 "-" marks.
 
-    The "makeMark()" function is used for making a mark on the board by accepting a row and column, and it also takes into account
+  The "makeMark()" function is used for making a mark on the board by accepting a row and column, and it also takes into account
 the player's turn. The main code of the function lies in its further error checking. Along with checking in the view, this checks
 the selection by using the "isValidSquare()" and "isSquareMarked()" functions. When checking if the move is valid it also
 checks to see if the selection is within the bounds of the board. If the mark is within bounds and is not in the same location
@@ -43,13 +43,13 @@ as another mark, then the board marks "X" or "O" based on player turn. Additiona
 requested in the parameters, the "isXTurn()" function returns a boolean indicating if player one or two is playing and the 
 "getWidth)" function returns the size of the board.
 
-    To determine a winner the "getResults()" function must be called by the "isGameOver()" function. In the "getResult()" function, 
+  To determine a winner the "getResults()" function must be called by the "isGameOver()" function. In the "getResult()" function, 
 the appropriate result are returned based on "isMarkWin()" or "isTie()." These functions contain the algorithms for setting win and 
 tie conditions based on size of the board. Using nested if and loop statments each square is checked left to right and up to down 
 and finally diagonally. For the "isTie()" function, the board is iterated through, and if there are no empty spaces, and there are
 no winners, a true boolean value is returned to indicate a tie.
 
-    The board construction takes place in the "toString()" method of the model. Stringbuilders are the primary component of constructionas the correct strings are appended in an efficient manner. First, the column headers are appended with the help of a for loop. Next,after adding a new line, a nested for loop iterates through the board and appends each row at a time from left to right by adding the row number, row marks, then a new line. Additionally, a new line is also added before the string is returned.
+  The board construction takes place in the "toString()" method of the model. Stringbuilders are the primary component of constructionas the correct strings are appended in an efficient manner. First, the column headers are appended with the help of a for loop. Next,after adding a new line, a nested for loop iterates through the board and appends each row at a time from left to right by adding the row number, row marks, then a new line. Additionally, a new line is also added before the string is returned.
 
 
 Example    
@@ -88,6 +88,6 @@ players and announce a winner. Now that the board is created, there must be func
 When a player clicks a button, it is sent to this function, disabling the button and setting the text to either "X" or "O"
 respectively. Similarly, when the game is marked as over, the "setWinner()" function sets the label as "X" "O" or "TIE" respectively.
 
-    Changes to the controller include an action performed function that collects information from a button when it is clicked.
+   Changes to the controller include an action performed function that collects information from a button when it is clicked.
 It first sets the button in the view, then sets a winner if one is found. The rest of the controller consists of the function 
 that creates the JFrame from the view class.
