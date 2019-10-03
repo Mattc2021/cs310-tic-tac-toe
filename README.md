@@ -1,6 +1,6 @@
 Introduction 
 
-     This Tic-Tac-Toe game is a classic game where players take turns putting X's and O's on the board until the result ends up  
+   This Tic-Tac-Toe game is a classic game where players take turns putting X's and O's on the board until the result ends up  
 either with 3 X's or O's in a line or a tie. By default, the board size is a 3x3 grid, but you can change the size by running the
 file from a command terminal. Next, set the directory to TicTacToe.jar and enter the command "java -jar TicTacToe.jar" where a
 number can be added to the end of that statement for a bigger board. The program is divided up into five class: TicTacToe,
@@ -8,7 +8,7 @@ TicTacToeController, TicTacToeView, TicTacToeModel, TicTacToeMove. The TicTacToe
 
 Main and Controller
 
-    After retrieving the size of the board and initializing the model and view of the program, the controller calls the "start()" 
+  After retrieving the size of the board and initializing the model and view of the program, the controller calls the "start()" 
 function. A loop starts to test whether the game is over and within that the view's "toString()" function displays the board.
 It also retrieves the player's next move through the "getNextMove()" function and takes the correct players turn into account
 switching a boolean from true to false, also meaning player one (x) and player two (o). If the move is invalid it displays an error 
@@ -17,7 +17,7 @@ To switch the boolean, a winner or tie must be decided then the board shows the 
 
 View and Move
 
-     Output and input are handled in the view (aside from the user input of board size which is taken care of in the command line.
+   Output and input are handled in the view (aside from the user input of board size which is taken care of in the command line.
 When the view is initialized in the main, a scanner is assigned to a variable for assisting with further input. An if statement then 
 outputs whose move it is depending on which turn was last, unless it was the first turn where player one begins always. This instructions
 ("Enter the row and column numbers, separated by a space:") are printed to the screen and the next input is recorded. When inputting
@@ -28,7 +28,7 @@ class.
 
 Model
 
-    This is where the brains of the program lie. Variables declared at the beginning of the model include board size, the boolean to
+  This is where the brains of the program lie. Variables declared at the beginning of the model include board size, the boolean to
 determine what player is next, and the physical board which is a two-dimensional array of marks. The strings in the function are "X"
 "O" "-". Using the same method, the results after completion are stored as either "X" "O" "TIE" and "NONE". Next, the two dimensional
 array of marks is delcared using the size of the board to set the column and row length, and a loop populates all empty space with 
@@ -73,15 +73,15 @@ Example
 
 Graphical Possibilities
 
- 	With only edits to the view and associated calls from the controller, this program may be made into a graphical program. 
-  By extending the view to a JFrame with the appropriate algorithms to convert the model to graphical objects, a window with any 
-  size board can be filled with buttons.
-        To start, a two-dimensional array of JButtons must be created for the board, and they
-  are then populated with an imbedded for-loop that adds each JButton to a JPanel. To keep track of the coordinates, the button's
-  names are set to include their coordinates. With the JPanel added to the JFrame, a label is also added to the frame to greet the
-  players and announce a winner. Now that the board is created, there must be functions to change the board. The first is "setButton()"
-  When a player clicks a button, it is sent to this function, disabling the button and setting the text to either "X" or "O"
-  respectively. Similarly, when the game is marked as over, the "setWinner()" function sets the label as "X" "O" or "TIE" respectively.
-	 Changes to the controller include an action performed function that collects information from a button when it is clicked.
-  It first sets the button in the view, then sets a winner if one is found. The rest of the controller consists of the function 
-  that creates the JFrame from the view class.
+   With only edits to the view and associated calls from the controller, this program may be made into a graphical program. 
+By extending the view to a JFrame with the appropriate algorithms to convert the model to graphical objects, a window with any 
+size board can be filled with buttons.
+   To start, a two-dimensional array of JButtons must be created for the board, and they
+are then populated with an imbedded for-loop that adds each JButton to a JPanel. To keep track of the coordinates, the button's
+names are set to include their coordinates. With the JPanel added to the JFrame, a label is also added to the frame to greet the
+players and announce a winner. Now that the board is created, there must be functions to change the board. The first is "setButton()"
+When a player clicks a button, it is sent to this function, disabling the button and setting the text to either "X" or "O"
+respectively. Similarly, when the game is marked as over, the "setWinner()" function sets the label as "X" "O" or "TIE" respectively.
+    Changes to the controller include an action performed function that collects information from a button when it is clicked.
+It first sets the button in the view, then sets a winner if one is found. The rest of the controller consists of the function 
+that creates the JFrame from the view class.
